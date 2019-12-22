@@ -4,8 +4,12 @@ import sys
 import getopt
 
 def callback(match):
+	
+	print(match.group(0))
+	
 	import timestring
-	date_ob = timestring.Date(str(match))
+	date_ob = timestring.Date(match.group(0))
+	
 	dts = "{{dts|" + str(date_ob.day) + "|" + str(date_ob.month) + "|" + str(date_ob.year) + "}}"
 	return dts
 
